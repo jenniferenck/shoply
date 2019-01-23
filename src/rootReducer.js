@@ -7,14 +7,14 @@ function rootReducer(state = INITIAL_STATE, action) {
 
   switch (action.type) {
     case INCREMENT: {
-      const item = state.cart.find(i => i.id === action.payload.item.id);
+      const item = state.cart.find(i => i.id === action.payload.id);
 
       if (item) {
         return {
           ...state,
           cart: state.cart.map(i => {
             if (i.id === item.id) {
-              i.quantity += 1;
+              return { ...i, quantity: i.quantity + 1 };
             }
             return i;
           })
@@ -22,25 +22,25 @@ function rootReducer(state = INITIAL_STATE, action) {
       } else {
         return {
           ...state,
-          cart: [...state.cart, { ...action.payload.item, quantity: 1 }]
+          cart: [...state.cart, { ...action.payload, quantity: 1 }]
         };
       }
     }
 
     case DECREMENT:
-      const item = state.cart.find(i => i.id === action.payload.item.id);
+      const item = state.cart.find(i => i.id === action.payload.id);
 
       if (item && item.quantity === 1) {
         return {
           ...state,
-          cart: state.cart.filter(item => item.id !== action.payload.item.id)
+          cart: state.cart.filter(item => item.id !== action.payload.id)
         };
       } else if (item && item.quantity > 1) {
         return {
           ...state,
           cart: state.cart.map(i => {
             if (i.id === item.id) {
-              i.quantity -= 1;
+              return { ...i, quantity: i.quantity - 1 };
             }
             return i;
           })

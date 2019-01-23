@@ -9,21 +9,15 @@ class InventoryItemContainer extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    count: state.count
-  };
-}
-
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    increment: () => dispatch(increment(ownProps)),
-    decrement: () => dispatch(decrement(ownProps))
+    increment: () => dispatch(increment(ownProps.item)),
+    decrement: () => dispatch(decrement(ownProps.item))
   };
 }
 
 const connectedComponent = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 );
 
