@@ -13,7 +13,7 @@ class Nav extends Component {
     }
 
     return (
-      <nav className="navbar navbar-light bg-light px-4">
+      <nav className="navbar navbar-dark bg-dark px-4">
         <NavLink exact to="/">
           <span className="navbar-brand mb-0 h6 mr-auto">Shoply</span>
         </NavLink>
