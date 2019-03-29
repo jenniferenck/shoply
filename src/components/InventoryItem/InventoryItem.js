@@ -6,7 +6,14 @@ class InventoryItem extends Component {
 
     return (
       <div className="d-flex col-12 col-md-6 col-lg-4">
-        <div className="card" style={{ marginBottom: '30px', width: '100%' }}>
+        <div
+          className="card"
+          style={{
+            marginBottom: '30px',
+            width: '100%',
+            boxShadow: '1px 4px 5px black'
+          }}
+        >
           <div className="card-body">
             <h5 className="card-title text-capitalize">{name}</h5>
             <p className="h3 mb-3">${price}</p>
